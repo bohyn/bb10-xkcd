@@ -1,0 +1,6 @@
+arm
+x86
+assets/.assets.index
+translations/xkcd.qm
+precompiled.h
+config.pri
