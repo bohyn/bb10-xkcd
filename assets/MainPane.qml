@@ -22,6 +22,7 @@ Container {
         text: "xkcd"
         textStyle.base: SystemDefaults.TextStyles.BigText
         horizontalAlignment: HorizontalAlignment.Center
+        bottomMargin: 0
     }
     
     ComicPane {
