@@ -11,6 +11,7 @@
 #include <bb/cascades/Image>
 
 #include <QVariant>
+#include <QVariantList>
 #include <QVariantMap>
 #include <QString>
 #include <QUrl>
@@ -18,6 +19,12 @@
 
 class QNetworkAccessManager;
 class QNetworkReply;
+class QSettings;
+
+
+typedef QMap<int, QString> XkcdBookmarksMap;
+Q_DECLARE_METATYPE(XkcdBookmarksMap);
+
 
 class XkcdProvider : public QObject {
 	Q_OBJECT
@@ -26,6 +33,7 @@ public:
 	virtual ~XkcdProvider();
 	Q_INVOKABLE int getMaxId() { return m_maxId; }
 	Q_INVOKABLE QUrl getCurrentUrl();
+	Q_INVOKABLE QVariantList getBookmarks();
 
 public slots:
 	void loadFirst();
@@ -35,11 +43,17 @@ public slots:
 	void loadLast();
 	void load(int comic_id);
 
+	void addToBookmarks();
+	void removeFromBookmarks(int comic_id);
+
 signals:
 	void loadStarted();
-	void loadCompleted(int comic_id, QString comic_title, QString comic_alt, bb::cascades::Image comic_image);
+	void loadCompleted(int comic_id, const QString &comic_title, const QString &comic_alt, bb::cascades::Image comic_image);
 	void loadError();
 	void loadProgress(qint64 bytesReceived, qint64 bytesTotal);
+
+	void addedToBookmarks(int comic_id, const QString &comic_title);
+	void removedFromBookmarks(int comic_id, const QString &comic_title);
 
 private:
 	int m_maxId;
@@ -47,6 +61,7 @@ private:
 	QVariantMap m_currentData;
 	QNetworkAccessManager *m_dataNetMan;
 	QNetworkAccessManager *m_imgNetMan;
+	QSettings *m_settings;
 
 	QUrl getDataUrl(int comic_id);
 

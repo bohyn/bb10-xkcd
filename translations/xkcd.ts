@@ -2,6 +2,20 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
+    <name>BookmarkActionItem</name>
+    <message>
+        <source>Add to bookmarks</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>BookmarksPage</name>
+    <message>
+        <source>Go to bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>GotoActionItem</name>
     <message>
         <source>Go to</source>
@@ -24,6 +38,40 @@
     <name>ShareActionItem</name>
     <message>
         <source>Share</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>main</name>
+    <message>
+        <source>Browse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bookmarks</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>navigation</name>
+    <message>
+        <source>Random</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>First</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Previous</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Last</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

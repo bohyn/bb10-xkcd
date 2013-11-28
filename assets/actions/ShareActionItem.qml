@@ -13,7 +13,6 @@ InvokeActionItem {
             enabled = true
         });
         triggered.connect(function() {
-            console.log("ShareActionItem.triggered()");
         	data = "Hi, check out this Xkcd comic: " + _provider.getCurrentUrl();
         	console.log(data);
         });

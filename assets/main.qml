@@ -15,25 +15,30 @@
  */
 
 import bb.cascades 1.2
-import bb.system 1.2
 
-Page {
-    actions: [
-        ShareActionItem {
-            id: shareAction
+TabbedPane {
+    tabs: [
+        Tab {
+            title: qsTr("Browse")
+            imageSource: "asset:///images/ic_browse.png"
+            MainPage {
+                id: mainPage
+            }
         },
-        GotoActionItem {
-            id: gotoAction
+        Tab {
+            title: qsTr("Bookmarks")
+            imageSource: "asset:///images/ic_bookmarks.png"
+            BookmarksPage {
+            	id: bookmarksPage
+            }
         }
     ]
-    
-    MainPane {
-        id: mainPane
-    }
-    
+
     onCreationCompleted: {
-        gotoAction.init(_provider);
-        shareAction.init(_provider);
-        mainPane.init(_provider);
+        mainPage.init(_provider);
+        bookmarksPage.init(_provider);
+        bookmarksPage.loadBookmark.connect(function() {
+            activeTab = mainPage.parent;
+        });
     }
 }
